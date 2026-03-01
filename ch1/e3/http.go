@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"net/http"
 )
 
@@ -11,5 +12,10 @@ func getIssueData(url string) ([]byte, error) {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
 	defer res.Body.Close()
-	return res, nil
+
+	data, err := io.ReadAll(res.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %v", err)
+	}
+	return data, nil
 }
