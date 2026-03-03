@@ -11,7 +11,7 @@ type Issue struct {
 }
 
 func getIssues(domain string) ([]Issue, error) {
-	res, err := http.Get("https://" + domain + "/v1/courses_rest_api/learn-http/issues")
+	res, err := http.Get("https://" + "api." + domain + "/v1/courses_rest_api/learn-http/issues")
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
