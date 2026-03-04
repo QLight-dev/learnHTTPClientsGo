@@ -32,8 +32,7 @@ func main() {
 	fmt.Println("Project updated!")
 	fmt.Println("---")
 
-	newApiKey := generateKey()
-	newProject, err := getProjectResponse(newApiKey, url)
+	newProject, err := getProjectResponse(apiKey, url)
 	if err != nil {
 		fmt.Println("Error getting new project:", err)
 		return
