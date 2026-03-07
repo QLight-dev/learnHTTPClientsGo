@@ -6,7 +6,7 @@ import (
 )
 
 func getUsers(url string) ([]User, error) {
-	fullURL := url
+	fullURL := url + "?sort=experience"
 	res, err := http.Get(fullURL)
 	if err != nil {
 		return nil, err
