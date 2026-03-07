@@ -7,7 +7,7 @@ import (
 )
 
 func getResources(path string) []map[string]any {
-	fullURL := "https://api.boot.dev"
+	fullURL := fmt.Sprintf("https://api.boot.dev/%s", path)
 
 	res, err := http.Get(fullURL)
 	if err != nil {
